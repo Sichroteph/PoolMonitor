@@ -4,7 +4,7 @@
 #define KEY_PH 1
 #define KEY_ORP 2
 #define MESSAGE_KEY_READY 3
-#define KEY_UNIT 4
+#define KEY_RADIO_UNITS 4
 
 #ifdef PBL_COLOR
 #define IS_COLOR true
@@ -58,7 +58,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
   Tuple *temp_tuple = dict_find(iterator, KEY_TEMP);
   Tuple *ph_tuple = dict_find(iterator, KEY_PH);
   Tuple *orp_tuple = dict_find(iterator, KEY_ORP);
-  Tuple *unit_tuple = dict_find(iterator, KEY_UNIT);
+  Tuple *unit_tuple = dict_find(iterator, KEY_RADIO_UNITS);
 
   if (temp_tuple && ph_tuple && orp_tuple)
   {

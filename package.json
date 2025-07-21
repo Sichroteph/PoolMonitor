@@ -8,7 +8,7 @@
   "private": true,
   "dependencies": {},
   "pebble": {
-    "displayName": "PoolMonitor",
+    "displayName": "Pool Monitor",
     "uuid": "419c5280-306d-4c70-b997-e66209156bc5",
     "sdkVersion": "3",
     "enableMultiJS": true,
@@ -29,13 +29,20 @@
       "KEY_PH": 1,
       "KEY_ORP": 2,
       "MESSAGE_KEY_READY": 3,
-      "KEY_UNIT": 4
+      "KEY_RADIO_UNITS": 4
     },
     "resources": {
       "media": [
         {
           "file": "images/BAR_W",
           "name": "BAR_W",
+          "targetPlatforms": null,
+          "type": "bitmap"
+        },
+        {
+          "file": "images/pool_icon.png",
+          "menuIcon": true,
+          "name": "IMAGE_MENU_ICON",
           "targetPlatforms": null,
           "type": "bitmap"
         },

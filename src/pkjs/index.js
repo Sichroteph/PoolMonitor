@@ -5,12 +5,13 @@ function sendPoolDataToPebble(nTemp, nPH, nORP) {
   //poolTemp = Math.round(28 * 100); // Assurez-vous que c'est un entier
   //poolPH = Math.round(7.2 * 100);  // Assurez-vous que c'est un entier
   //poolORP = 654;                   // Déjà un entier
-
+  var units = 0;
+  units = parseInt(localStorage.getItem(10));
   Pebble.sendAppMessage({
     "KEY_TEMP": nTemp,
     "KEY_PH": nPH,
     "KEY_ORP": nORP,
-    "KEY_UNIT": 1
+    "KEY_RADIO_UNITS": units
   }, function () {
     console.log("Données envoyées avec succès à Pebble");
 
@@ -26,13 +27,12 @@ Pebble.addEventListener('appmessage', function (e) {
 
 function getIOPoolData() {
   console.log("getIOPoolData");
+sendPoolDataToPebble(280, 734, 678);
+  var apiKey = localStorage.getItem(11);
 
-  var apiKey = localStorage.getItem(158);
-
-   
 
   // pour test
-  //sendPoolDataToPebble(170, 680, 800);
+  
 
   if (apiKey !== null) {
 
@@ -88,6 +88,35 @@ function getIOPoolData() {
     console.error("API key manquante");
   }
 }
+Pebble.addEventListener('showConfiguration', function () {
+  //var url = 'http://sichroteph.github.io/Ruler-Weather/';
+  var url = 'http://sichroteph.github.io/PoolMonitor/';
+
+  Pebble.openURL(url);
+});
+
+
+Pebble.addEventListener('webviewclosed', function (e) {
+  var configData = JSON.parse(decodeURIComponent(e.response));
+  console.log('Configuration page returned: ' + JSON.stringify(configData));
+
+
+
+  var input_iopool_token = configData['input_iopool_token'];
+  var radio_units = 0;
+  radio_units = configData['radio_units'] ? 1 : 0;
+
+
+  var dict = {};
+  console.log('radio units: ' + radio_units);
+  localStorage.setItem(10, radio_units ? 1 : 0);
+  localStorage.setItem(11, configData['input_iopool_token']);
+
+  dict['KEY_RADIO_UNITS'] = radio_units;
+
+  getIOPoolData();
+
+});
 
 
 Pebble.addEventListener('ready', function () {
