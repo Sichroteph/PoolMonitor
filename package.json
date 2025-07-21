@@ -1,15 +1,21 @@
 {
-  "name": "PoolMonitor",
-  "author": "MakeAwesomeHappen",
+  "name": "pool-monitor",
+  "author": "Christophe Jeannette",
   "version": "1.0.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
   "dependencies": {},
   "pebble": {
     "displayName": "PoolMonitor",
-    "uuid": "3972d67c-f68a-49dc-9e41-ed1848d5ca1d",
+    "uuid": "419c5280-306d-4c70-b997-e66209156bc5",
     "sdkVersion": "3",
     "enableMultiJS": true,
+    "capabilities": [
+      "location",
+      "configurable"
+    ],
     "targetPlatforms": [
       "aplite",
       "basalt",
@@ -18,11 +24,34 @@
     "watchapp": {
       "watchface": false
     },
-    "messageKeys": [
-      "dummy"
-    ],
+    "messageKeys": {
+      "KEY_TEMP": 0,
+      "KEY_PH": 1,
+      "KEY_ORP": 2,
+      "MESSAGE_KEY_READY": 3,
+      "KEY_UNIT": 4
+    },
     "resources": {
-      "media": []
+      "media": [
+        {
+          "file": "images/BAR_W",
+          "name": "BAR_W",
+          "targetPlatforms": null,
+          "type": "bitmap"
+        },
+        {
+          "file": "images/BAR_C",
+          "name": "BAR_C",
+          "targetPlatforms": null,
+          "type": "bitmap"
+        },
+        {
+          "file": "images/ARROW",
+          "name": "ARROW",
+          "targetPlatforms": null,
+          "type": "bitmap"
+        }
+      ]
     }
   }
 }
