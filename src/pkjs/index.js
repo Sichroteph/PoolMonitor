@@ -27,7 +27,7 @@ Pebble.addEventListener('appmessage', function (e) {
 
 function getIOPoolData() {
   console.log("getIOPoolData");
-sendPoolDataToPebble(280, 734, 678);
+//sendPoolDataToPebble(280, 734, 678);
   var apiKey = localStorage.getItem(11);
 
 

@@ -73,6 +73,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
     snprintf(temp_buffer, sizeof(temp_buffer), "%d.%01d °C", (int)(temp_tuple->value->int32 / 10), (int)(temp_tuple->value->int32 % 10));
     snprintf(ph_buffer, sizeof(ph_buffer), "%d.%02d pH", (int)(ph_tuple->value->int32 / 100), (int)(ph_tuple->value->int32 % 100));
     snprintf(orp_buffer, sizeof(orp_buffer), "%d mV", (int)orp_tuple->value->int32);
+    
     unit_value = unit_tuple->value->int32;
 
     APP_LOG(APP_LOG_LEVEL_DEBUG, "Unit value: %d", unit_value);
