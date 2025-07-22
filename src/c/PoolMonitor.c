@@ -91,7 +91,9 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
     layer_set_frame(bitmap_layer_get_layer(s_arrow3_layer), GRect(arrowPosition(ph_value, 640, 850), 147 + offset_Y3, 13, 7));
     
     // layer_set_frame(bitmap_layer_get_layer(s_arrow1_layer), GRect(, 35, 13, 7));
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "arrow position : %d", arrowPosition(temp_value, 12, 37));
+    // APP_LOG(APP_LOG_LEVEL_DEBUG, "arrow position : %d", arrowPosition(temp_value, 12, 37));
+    vibes_double_pulse();
+
   }
 }
 
@@ -182,26 +184,26 @@ static void prv_window_load(Window *window)
     s_bar = gbitmap_create_with_resource(RESOURCE_ID_BAR_W);
 
   // Créer un BitmapLayer pour afficher l'icône
-  s_bar1_layer = bitmap_layer_create(GRect(0, -6+offset_Y1, 144, 75)); // Ajustez la position et la taille selon vos besoins
+  s_bar1_layer = bitmap_layer_create(GRect(0, -6+offset_Y1, 144, 75)); 
   bitmap_layer_set_bitmap(s_bar1_layer, s_bar);
 
-  s_bar2_layer = bitmap_layer_create(GRect(0, 50+offset_Y2, 144, 75)); // Ajustez la position et la taille selon vos besoins
+  s_bar2_layer = bitmap_layer_create(GRect(0, 50+offset_Y2, 144, 75)); 
   bitmap_layer_set_bitmap(s_bar2_layer, s_bar);
 
-  s_bar3_layer = bitmap_layer_create(GRect(0, 106+offset_Y3, 144, 75)); // Ajustez la position et la taille selon vos besoins
+  s_bar3_layer = bitmap_layer_create(GRect(0, 106+offset_Y3, 144, 75)); 
   bitmap_layer_set_bitmap(s_bar3_layer, s_bar);
 
   // -------------------------------------------------------------
 
   s_arrow = gbitmap_create_with_resource(RESOURCE_ID_ARROW);
 
-  s_arrow1_layer = bitmap_layer_create(GRect(66, 35+offset_Y1, 13, 7)); // Ajustez la position et la taille selon vos besoins
+  s_arrow1_layer = bitmap_layer_create(GRect(66, 35+offset_Y1, 13, 7)); 
   bitmap_layer_set_bitmap(s_arrow1_layer, s_arrow);
 
-  s_arrow2_layer = bitmap_layer_create(GRect(66, 91+offset_Y2, 13, 7)); // Ajustez la position et la taille selon vos besoins
+  s_arrow2_layer = bitmap_layer_create(GRect(66, 91+offset_Y2, 13, 7)); 
   bitmap_layer_set_bitmap(s_arrow2_layer, s_arrow);
 
-  s_arrow3_layer = bitmap_layer_create(GRect(66, 147+offset_Y3, 13, 7)); // Ajustez la position et la taille selon vos besoins
+  s_arrow3_layer = bitmap_layer_create(GRect(66, 147+offset_Y3, 13, 7)); 
   bitmap_layer_set_bitmap(s_arrow3_layer, s_arrow);
 
   layer_add_child(window_layer, bitmap_layer_get_layer(s_bar1_layer));
